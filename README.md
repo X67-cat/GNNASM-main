@@ -35,15 +35,19 @@ git clone https://github.com/X67-cat/GNNASM-main.git
 ```
 Unzip the compressed package and ensure the local directory structure is complete including code files, images folder, datasets, etc.
 ## 3.2 Prepare Running Environment
-Open the terminal (or VS Code terminal) and navigate to the project root directory
+1.Open the terminal (or VS Code terminal) and navigate to the project root directory
 Install dependency packages (Python 3.7+ needs to be installed in advance)
 ```
-pip install numpy pandas tensorflow scikit-learn spektral scipy 
-``` 
+pip install numpy pandas tensorflow scikit-learn spektral scipy
+```
+2.After the installation is complete, you can check if all libraries are successfully installed using the following command:
+```
+python -c "import numpy, pandas, tensorflow, sklearn, spektral, scipy; print('All dependencies are installed successfully!')"
+```
+If the terminal outputs "All dependencies are installed successfully!", it means the environment preparation is complete.
 ## 3.3 Train and Test Model (Based on Training Set)
 Put your data into the ```GNNmodel\train_gnn.py```:
 ```
-
 TRsmiles_feature.csv
 TRsniles_label.csv
 Tanimoto_filtered.csv
@@ -59,7 +63,6 @@ models/gcn_model_fold_7.h5
 ## 3.4 Model Prediction (Based on Test Set) 
 Put your data into the ```GNNmodel\test_gnn.py```:
 ```
-
 TRsmiles_feature.csv
 TRsniles_label.csv
 Tanimoto_filtered.csv
