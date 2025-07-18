@@ -31,7 +31,7 @@ openpyxl=3.1.2
 ## 3.1 Download Project Files
 Open the GitHub repository page, click the Code button in the upper right corner, select Download ZIP to download the project compressed package
 ```
-https://github.com/X67-cat/GNNASM-main.git
+git clone https://github.com/X67-cat/GNNASM-main.git
 ```
 Unzip the compressed package and ensure the local directory structure is complete including code files, images folder, datasets, etc.
 ## 3.2 Prepare Running Environment
