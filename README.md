@@ -35,12 +35,12 @@ git clone https://github.com/X67-cat/GNNASM-main.git
 ```
 Unzip the compressed package and ensure the local directory structure is complete including code files, images folder, datasets, etc.
 ## 3.2 Prepare Running Environment
-1.Open the terminal (or VS Code terminal) and navigate to the project root directory
+1. Open the terminal (or VS Code terminal) and navigate to the project root directory
 Install dependency packages (Python 3.7+ needs to be installed in advance)
 ```
 pip install numpy pandas tensorflow scikit-learn spektral scipy
 ```
-2.After the installation is complete, you can check if all libraries are successfully installed using the following command:
+2. After the installation is complete, you can check if all libraries are successfully installed using the following command:
 ```
 python -c "import numpy, pandas, tensorflow, sklearn, spektral, scipy; print('All dependencies are installed successfully!')"
 ```
@@ -53,13 +53,13 @@ TRsniles_label.csv
 Tanimoto_filtered.csv
 ```
 Code running description:
-1.The code will first load and preprocess the data, including reading the above three data files, performing data merging, feature standardization, adjacency matrix construction and normalization, etc.
-2.Build a GCN model, which includes two GCNConv layers, Dropout layers, Dense layers, etc., using the adam optimizer and binary_crossentropy as the loss function.
-3.Use 10-fold cross-validation for training, and during the training process, the 7th fold model will be saved to 
+1. The code will first load and preprocess the data, including reading the above three data files, performing data merging, feature standardization, adjacency matrix construction and normalization, etc.
+2. Build a GCN model, which includes two GCNConv layers, Dropout layers, Dense layers, etc., using the adam optimizer and binary_crossentropy as the loss function.
+3. Use 10-fold cross-validation for training, and during the training process, the 7th fold model will be saved to 
 ```
 models/gcn_model_fold_7.h5
 ```
-4.After training, it will output the evaluation indicators (accuracy, sensitivity, specificity, auc, mcc) for each fold and the summary results of cross-validation (mean ± standard deviation).
+4. After training, it will output the evaluation indicators (accuracy, sensitivity, specificity, auc, mcc) for each fold and the summary results of cross-validation (mean ± standard deviation).
 ## 3.4 Model Prediction (Based on Test Set) 
 Put your data into the ```GNNmodel\test_gnn.py```:
 ```
@@ -67,8 +67,8 @@ TRsmiles_feature.csv
 TRsniles_label.csv
 Tanimoto_filtered.csv
 ```
-1.The code will load the 7th fold model (models/gcn_model_fold_7.h5) saved during training, and load the above three data files and perform the same data preprocessing operations as during training.
-2.Use the loaded model to predict the test set data, and obtain the prediction probability and prediction label.
-3.Calculate and output the evaluation indicators (accuracy, sensitivity, specificity, auc, mcc) of the test set to evaluate the performance of the model on the test set.
+1. The code will load the 7th fold model (models/gcn_model_fold_7.h5) saved during training, and load the above three data files and perform the same data preprocessing operations as during training.
+2. Use the loaded model to predict the test set data, and obtain the prediction probability and prediction label.
+3. Calculate and output the evaluation indicators (accuracy, sensitivity, specificity, auc, mcc) of the test set to evaluate the performance of the model on the test set.
 # 4 Results 
 In the experiments, the input files used for both the training and testing sets are the same: data/TRsmiles_feature.csv, data/TRsmiles_label.csv, and data/Tanimoto_filtered.csv. However, the code distinguishes between training and testing data by selecting the first 8,000 samples as the training set and the remaining 2,000 samples as the validation (test) set. After running the code, the results of 10-fold cross-validation on the training set and the evaluation on the test set will be displayed in the terminal for easy observation and selection of experimental results. It is recommended to back up important results in advance. If you wish to preserve historical outputs, you may modify the code accordingly.
