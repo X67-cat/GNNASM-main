@@ -27,6 +27,16 @@ rdkit=2022.09.5
 tqdm=4.65.0
 
 openpyxl=3.1.2
+# Hardware Configuration
+Operating System: Windows 10 / 11 (64-bit)
+
+CPU: Intel Core i7-13700H
+
+GPU: NVIDIA GeForce RTX 3060 Laptop GPU (6 GB VRAM)
+
+Memory (RAM): 16 GB
+
+CUDA Version: 11.8
 # 3.How to run
 ## 3.1 Download Project Files
 Open the GitHub repository page, click the Code button in the upper right corner, select Download ZIP to download the project compressed package
@@ -46,6 +56,17 @@ python -c "import numpy, pandas, tensorflow, sklearn, spektral, scipy; print('Al
 ```
 If the terminal outputs "All dependencies are installed successfully!", it means the environment preparation is complete.
 ## 3.3 Train and Test Model (Based on Training Set)
+To ensure reproducibility, random seeds were fixed before training:
+import os, random, numpy as np, tensorflow as tf, torch
+
+seed = 42
+os.environ['PYTHONHASHSEED'] = str(seed)
+random.seed(seed)
+np.random.seed(seed)
+tf.random.set_seed(seed)
+torch.manual_seed(seed)
+torch.cuda.manual_seed_all(seed)
+
 Put your data into the ```GNNmodel\train_gnn.py```:
 ```
 TRsmiles_feature.csv
@@ -72,3 +93,4 @@ Tanimoto_filtered.csv
 3. Calculate and output the evaluation indicators (accuracy, sensitivity, specificity, auc, mcc) of the test set to evaluate the performance of the model on the test set.
 # 4 Results 
 In the experiments, the input files used for both the training and testing sets are the same: data/TRsmiles_feature.csv, data/TRsmiles_label.csv, and data/Tanimoto_filtered.csv. However, the code distinguishes between training and testing data by selecting the first 8,000 samples as the training set and the remaining 2,000 samples as the validation (test) set. After running the code, the results of 10-fold cross-validation on the training set and the evaluation on the test set will be displayed in the terminal for easy observation and selection of experimental results. It is recommended to back up important results in advance. If you wish to preserve historical outputs, you may modify the code accordingly.
+
