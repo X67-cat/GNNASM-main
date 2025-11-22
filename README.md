@@ -100,7 +100,7 @@ To ensure the reproducibility of our research, we provide the following resource
 ## 4.1 Code Availability
 The complete source code for model training, evaluation, and inference is available at: https://github.com/X67-cat/GNNASM-main
 ## 4.2 Datasets
-All datasets used in this study are included in the repository under the data/ directory:
+All datasets used in this study are included in the repository under the GNNASM-main/main:
    ```
 TRsmiles_feature.csv
 TRsniles_label.csv
@@ -122,6 +122,7 @@ The raw data sources from NCBI PubChem BioAssay and CTD databases are publicly a
 We have verified that following these instructions allows for training models identical to those used in our paper and complete replication of all results reported below.
 # 5 Results 
 In the experiments, the input files used for both the training and testing sets are the same: data/TRsmiles_feature.csv, data/TRsmiles_label.csv, and data/Tanimoto_filtered.csv. However, the code distinguishes between training and testing data by selecting the first 8,000 samples as the training set and the remaining 2,000 samples as the validation (test) set. After running the code, the results of 10-fold cross-validation on the training set and the evaluation on the test set will be displayed in the terminal for easy observation and selection of experimental results. It is recommended to back up important results in advance. If you wish to preserve historical outputs, you may modify the code accordingly.
+
 
 
 
